@@ -7,9 +7,9 @@
 | nickname            | string              | null: false               |
 | email               | string              | null: false, unique: true |
 | encrypted_password  | string              | null: false               |
-| family_name         | string              | null: false               |
+| last_name           | string              | null: false               |
 | first_name          | string              | null: false               |
-| family_name_kana    | string              | null: false               |
+| last_name_kana      | string              | null: false               |
 | first_name_kana     | string              | null: false               |
 | birthday            | date                | null: false               |
 
@@ -27,7 +27,7 @@
 | category_id       | integer         | null: false                   |
 | status_id         | integer         | null: false                   |
 | postage_burden_id | integer         | null: false                   |
-| prefecture_id      | integer         | null: false                   |
+| prefecture_id     | integer         | null: false                   |
 | shipping_day_id   | integer         | null: false                   |
 | selling_price     | integer         | null: false                   |
 | user              | references      | null: false, foreign_key: true|

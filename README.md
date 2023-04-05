@@ -24,11 +24,11 @@
 |-------------------|-----------------|-------------------------------|
 | item_name         | string          | null: false                   |
 | sentence          | text            | null: false                   |
-| category.id       | integer         | null: false                   |
-| states.id         | integer         | null: false                   |
-| postage_burden.id | integer         | null: false                   |
-| prefectures.id    | integer         | null: false                   |
-| shipping_days.id  | integer         | null: false                   |
+| category_id       | integer         | null: false                   |
+| status_id         | integer         | null: false                   |
+| postage_burden_id | integer         | null: false                   |
+| prefectur_id      | integer         | null: false                   |
+| shipping_day_id   | integer         | null: false                   |
 | selling_price     | integer         | null: false                   |
 | user              | references      | null: false, foreign_key: true|
 
@@ -41,13 +41,12 @@
 
 | Column             | Type            | Options                       |
 |--------------------|-----------------|-------------------------------|
-| buyer              | string          | null: false                   |
-| buy_item           | string          | null: false                   |
 | user               | references      | null: false, foreign_key: true|
 | item               | references      | null: false, foreign_key: true|
 
 ### Association
 
+* belongs_to :user
 * belongs_to :item
 * has_one :address
 
@@ -56,7 +55,7 @@
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
 | post_code          | string              | null: false                    |
-| prefectures        | integer             | null: false                    |
+| prefecture_id      | integer             | null: false                    |
 | municipalities     | string              | null: false                    |
 | address            | string              | null: false                    |
 | building           | string              |                                |

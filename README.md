@@ -27,7 +27,7 @@
 | category_id       | integer         | null: false                   |
 | status_id         | integer         | null: false                   |
 | postage_burden_id | integer         | null: false                   |
-| prefectur_id      | integer         | null: false                   |
+| prefecture_id      | integer         | null: false                   |
 | shipping_day_id   | integer         | null: false                   |
 | selling_price     | integer         | null: false                   |
 | user              | references      | null: false, foreign_key: true|
@@ -35,7 +35,7 @@
 ### Association
 
 * belongs_to :user
-* has_one :shipping_address
+* has_one :order
 
 ## orders table
 

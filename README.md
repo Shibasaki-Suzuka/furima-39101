@@ -16,7 +16,7 @@
 ### Association
 
 * has_many :items
-* has_many :shipping_addresses
+* has_many :orders
 
 ## items table
 

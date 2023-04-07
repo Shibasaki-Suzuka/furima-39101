@@ -5,12 +5,7 @@ class Item < ApplicationRecord
 
   validates :item_name,          presence: true
   validates :sentence  ,         presence: true
-  # validates :category_id,        presence: true
-  # validates :status_id,          presence: true
-  # validates :postage_burden_id,  presence: true
-  # validates :prefecture_id,      presence: true
-  # validates :shipping_day_id,    presence: true
-  validates :selling_price,      presence: true
+  validates :selling_price,      presence: true, format: { with: /\A[0-9]+\z/, numericality: {in: 300..9999999},message: '半角数値を使用してください' }
   validates :item_name,          presence: true
   validates :image,              presence: true
 

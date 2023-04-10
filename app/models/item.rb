@@ -5,8 +5,8 @@ class Item < ApplicationRecord
 
   validates :item_name,          presence: true
   validates :sentence  ,         presence: true
-  validates :selling_price,      presence: true, format: { with: /\A[0-9]+\z/, numericality: {in: 300..9999999},message: '半角数値を使用してください' }
-  validates :item_name,          presence: true
+  validates :selling_price,      presence: true, numericality: { only_integer: true,  message: 'は半角数値を使用してください' }
+  validates :selling_price,                      numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: '300~9,999,999を入力してください'}
   validates :image,              presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions

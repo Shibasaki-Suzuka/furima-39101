@@ -23,28 +23,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Sentence can't be blank")
       end
-      it 'category_idが空では登録できない' do
-        @item.category_id = ''
+      it 'category_idが---では登録できない' do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
-      it 'status_idが空では登録できない' do
-        @item.status_id = ''
+      it 'status_idが---では登録できない' do
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
-      it 'postage_burden_idが空では登録できない' do
-        @item.postage_burden_id = ''
+      it 'postage_burden_idが---では登録できない' do
+        @item.postage_burden_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage burden can't be blank")
       end
-      it 'prefecture_idが空では登録できない' do
-        @item.prefecture_id = ''
+      it 'prefecture_idが---では登録できない' do
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
-      it 'shipping_day_idが空では登録できない' do
-        @item.shipping_day_id = ''
+      it 'shipping_day_idが---では登録できない' do
+        @item.shipping_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
@@ -78,6 +78,9 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
+      
+      
     end
   end
+
 end

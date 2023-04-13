@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_one :order
 
   with_options presence: true do
     validates :item_name
@@ -17,9 +18,9 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day
 
-  validates :category, numericality: { other_than: 1, message: "can't be blank" }
-  validates :status, numericality: { other_than: 1, message: "can't be blank" }
-  validates :postage_burden, numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_day, numericality: { other_than: 1, message: "can't be blank" }
+  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :postage_burden_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipping_day_id, numericality: { other_than: 1, message: "can't be blank" }
 end

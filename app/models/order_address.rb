@@ -11,6 +11,7 @@ class OrderAddress
     validates :call_number, numericality: { only_integer: true, message: 'は半角数値を使用してください' }
   end
   validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
+  validates :call_number, format: {with: /\A\d{10,11}\z/, message: '10桁以上11桁以内で入力してください' }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)

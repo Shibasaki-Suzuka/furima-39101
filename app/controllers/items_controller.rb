@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   before_action :move_to_edit_soldout, only: [:edit, :update, :destroy]
   before_action :move_to_edit, only: [:edit, :update, :destroy]
 
-
   def index
     @items = Item.order('created_at DESC')
   end

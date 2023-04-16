@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :post_code, :prefecture_id, :municipalities, :address, :building, :call_number 
+  attr_accessor :user_id, :item_id, :post_code, :prefecture_id, :municipalities, :address, :building, :call_number, :token
 
   with_options presence: true do
     validates :user_id
@@ -9,6 +9,7 @@ class OrderAddress
     validates :municipalities
     validates :address
     validates :call_number, numericality: { only_integer: true, message: 'は半角数値を使用してください' }
+    validates :token
   end
   validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
   validates :call_number, format: {with: /\A\d{10,11}\z/, message: '10桁以上11桁以内で入力してください' }

@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_edit_soldout, only: [:edit, :update, :destroy]
   before_action :move_to_edit, only: [:edit, :update, :destroy]
 
 
@@ -49,6 +50,10 @@ class ItemsController < ApplicationController
 
   def move_to_edit
     redirect_to root_path unless current_user == @item.user
+  end
+
+  def move_to_edit_soldout
+    redirect_to root_path if Order.exists?(item_id: @item)
   end
 
   def set_item

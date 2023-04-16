@@ -9,7 +9,8 @@ class Item < ApplicationRecord
     validates :selling_price, numericality: { only_integer: true, message: 'は半角数値を使用してください' }
     validates :image
   end
-  validates :selling_price,numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: '300~9,999,999を入力してください' }
+  validates :selling_price,
+            numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: '300~9,999,999を入力してください' }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

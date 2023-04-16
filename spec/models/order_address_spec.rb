@@ -70,6 +70,5 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
     end
-
   end
 end

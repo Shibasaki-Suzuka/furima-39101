@@ -47,17 +47,17 @@ RSpec.describe OrderAddress, type: :model do
       it 'call_numberが全角数字だと保存できないこと' do
         @order_address.call_number = '００００００００００'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Call number は半角数値を使用してください')
+        expect(@order_address.errors.full_messages).to include('Call number 10桁以上11桁以内で半角数値を使用して入力してください')
       end
       it 'call_numberが9桁以下だと保存できないこと' do
         @order_address.call_number = '000000000'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Call number 10桁以上11桁以内で入力してください')
+        expect(@order_address.errors.full_messages).to include('Call number 10桁以上11桁以内で半角数値を使用して入力してください')
       end
       it 'call_numberが12桁以上だと保存できないこと' do
         @order_address.call_number = '000000000000'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Call number 10桁以上11桁以内で入力してください')
+        expect(@order_address.errors.full_messages).to include('Call number 10桁以上11桁以内で半角数値を使用して入力してください')
       end
       it 'prefecture_idが---では登録できない' do
         @order_address.prefecture_id = 1

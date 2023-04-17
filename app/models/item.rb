@@ -1,13 +1,16 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_one :order
 
-  validates :item_name, presence: true
-  validates :sentence, presence: true
-  validates :selling_price, presence: true, numericality: { only_integer: true, message: 'は半角数値を使用してください' }
+  with_options presence: true do
+    validates :item_name
+    validates :sentence
+    validates :selling_price, numericality: { only_integer: true, message: 'は半角数値を使用してください' }
+    validates :image
+  end
   validates :selling_price,
             numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: '300~9,999,999を入力してください' }
-  validates :image, presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

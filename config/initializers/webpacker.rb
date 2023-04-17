@@ -1,0 +1,1 @@
+Webpacker::Compiler.env["PAYJP_PUBLIC_KEY_FURIMA"] = ENV["PAYJP_PUBLIC_KEY_FURIMA"]

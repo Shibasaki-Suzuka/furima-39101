@@ -1,3 +1,5 @@
+
+
 <%= render "shared/header" %>
 <div class='main'>
 
@@ -132,12 +134,10 @@
           <%= link_to item_path(item.id) do %>
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" %>
-            <% if %>
-            <%# 商品が売れていればsold outを表示しましょう %>
+            <% if Order.exists?(item_id: item.id) %>
             <div class='sold-out'>
               <span>Sold Out!!</span>
             </div>
-            <%# //商品が売れていればsold outを表示しましょう %>
             <% end %>
           </div>
           <div class='item-info'>
